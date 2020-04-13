@@ -49,6 +49,9 @@ app.get('/api/v1/on-covid-19', respondJson)
 app.get('/api/v1/on-covid-19/json',respondJson)
 app.get('/api/v1/on-covid-19/xml',respondXml)
 app.get('/api/v1/on-covid-19/logs',respondLogs)
+app.get('*',(req,res)=>{
+    res.write("Please use the api endpoints")
+})
 
 const port = process.env.PORT || 3000
 
