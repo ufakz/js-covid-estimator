@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 app.use(logger(":method\t\t:url\t\t:status\t\t:response-time ms",{
-    stream: fs.createWriteStream(`${__dirname}/../public/api.log`,{flags: 'a'})
+    stream: fs.createWriteStream(`${__dirname}/api.log`,{flags: 'a'})
 }));
 
 const inputData = {
