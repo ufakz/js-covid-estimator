@@ -1,7 +1,7 @@
 const button = document.getElementById('data-go-estimate');
 
 const region = {
-  name: "Africa",
+  name: 'Africa',
   avgAge: 19.7,
   avgDailyIncomeInUSD: 4,
   avgDailyIncomePopulation: 0.73
