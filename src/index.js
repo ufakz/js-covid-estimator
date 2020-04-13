@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
-app.use(logger(":method\t\t:url\t\t:status\t\t:response-time ms",
+app.use(logger(':method\t\t:url\t\t:status\t\t:response-time ms',
   {
     stream: fs.createWriteStream(`${__dirname}/api.log`,
       { flags: 'a' })
@@ -16,12 +16,12 @@ app.use(logger(":method\t\t:url\t\t:status\t\t:response-time ms",
 
 const inputData = {
   region: {
-    name: "Africa",
+    name: 'Africa',
     avgAge: 19.7,
     avgDailyIncomeInUSD: 4,
     avgDailyIncomePopulation: 0.73
   },
-  periodType: "days",
+  periodType: 'days',
   timeToElapse: 38,
   reportedCases: 2747,
   population: 92931687,
@@ -61,7 +61,7 @@ app.get('/api/v1/on-covid-19/logs',
   respondLogs);
 app.get('*',
   (req, res) => {
-    res.write("Please use the api endpoints");
+    res.write('Please use the api endpoints');
   });
 
 const port = process.env.PORT || 3000;
