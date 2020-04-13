@@ -1,4 +1,4 @@
-let computeData = (inputData) => {
+const computeData = (inputData) => {
     //Gets the required variables from the inputData object
     let { region, periodType, timeToElapse, population, currentlyInfected, totalHospitalBeds } = inputData;
     let infectionsByRequestedTime;
@@ -6,37 +6,37 @@ let computeData = (inputData) => {
     let days;
 
     //Checks for the periodType to resolve computation
-    if (periodType == "days") {
+    if (periodType === "days") {
         days = timeToElapse;
-        factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * (2 ** factor));
-    } else if (periodType = "weeks") {
+        factor = Math.trunc(days / 3);
+        infectionsByRequestedTime = Math.trunc(currentlyInfected * (2 ** factor));
+    } else if (periodType === "weeks") {
         days = timeToElapse * 7;
-        factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * (2 ** factor));
+        factor = Math.trunc(days / 3);
+        infectionsByRequestedTime = Math.trunc(currentlyInfected * (2 ** factor));
     } else {
         days = timeToElapse * 30;
-        factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * (2 ** factor));
+        factor = Math.trunc(days / 3);
+        infectionsByRequestedTime = Math.trunc(currentlyInfected * (2 ** factor));
     }
 
     //Gets 15% of the infectionsByRequestedTime
-    let severeCasesByRequestedTime = parseInt(0.15 * infectionsByRequestedTime);
+    const severeCasesByRequestedTime = Math.trunc(0.15 * infectionsByRequestedTime);
 
     //Gets 35% of beds as available beds
-    let availBeds = parseInt(0.35 * totalHospitalBeds);
+    const availBeds = Math.trunc(0.35 * totalHospitalBeds);
 
     //Gets the available hospital beds by requested time based on the available beds and severe cases
-    let hospitalBedsByRequestedTime = parseInt(availBeds - severeCasesByRequestedTime);
+    const hospitalBedsByRequestedTime = Math.trunc(availBeds - severeCasesByRequestedTime);
 
     //Gets 5% of the infections
-    let casesForICUByRequestedTime = parseInt(0.05 * infectionsByRequestedTime);
+    const casesForICUByRequestedTime = Math.trunc(0.05 * infectionsByRequestedTime);
 
     //Gets 2% of the infections
-    let casesForVentilatorsByRequestedTime = parseInt(0.02 * infectionsByRequestedTime);
+    const casesForVentilatorsByRequestedTime = Math.trunc(0.02 * infectionsByRequestedTime);
 
     //Gets the amount of dollars lost
-    let dollarsInFlight = parseInt((infectionsByRequestedTime * region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD) / days);
+    const dollarsInFlight = Math.trunc((infectionsByRequestedTime * region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD) / days);
 
     return {
         infectionsByRequestedTime,
@@ -49,7 +49,7 @@ let computeData = (inputData) => {
 }
 
 let calculateImpact = (inputData) => {
-    let currentlyInfected = parseInt(inputData.reportedCases * 10);
+    let currentlyInfected = Math.trunc(inputData.reportedCases * 10);
     inputData.currentlyInfected = currentlyInfected;
     let { infectionsByRequestedTime,
         severeCasesByRequestedTime,
@@ -68,11 +68,11 @@ let calculateImpact = (inputData) => {
         dollarsInFlight
     }
     return impact;
-    
+
 }
 
-let calculateSevereImpact = (inputData) => {
-    let currentlyInfected = parseInt(inputData.reportedCases * 50);
+const calculateSevereImpact = (inputData) => {
+    let currentlyInfected = Math.trunc(inputData.reportedCases * 50);
     inputData.currentlyInfected = currentlyInfected;
     let { infectionsByRequestedTime,
         severeCasesByRequestedTime,
@@ -93,7 +93,7 @@ let calculateSevereImpact = (inputData) => {
     return severeImpact;
 }
 
-let covid19ImpactEstimator = (inputData) => {
+const covid19ImpactEstimator = (inputData) => {
     let result = {};
     result.data = inputData;
     result.estimate = {};
