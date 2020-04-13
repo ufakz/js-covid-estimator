@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A Covid 19 estimation app">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid 19 Estimator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css" defer>
+</head>
+
+<body>
+    <section class="hero is-danger is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <figure class="image is-128x128">
+                                <img src="covid.png" alt="covid_pic">
+                            </figure>
+                        </div>
+                        <div class="level-item">
+                            <h1 class="title">
+                                COVID 19 Estimator
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half is-offset-one-quarter">
+                <div class="box">
+                    <div class="field">
+                        <label class="label" for="data-population">Population</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Please enter number" data-population=""
+                                id="data-population">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="data-time-to-elapse">Time to Elapse</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Please enter number" data-time-to-elapse=""
+                                id="data-time-to-elapse">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="data-reported-cases">Reported Cases</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Please enter number" data-reported-cases=""
+                                id="data-reported-cases">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="data-total-hospital-beds">Total Hospital Beds </label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Please enter number"
+                                data-total-hospital-beds="" id="data-total-hospital-beds">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="data-period-type">Period Type</label>
+                        <div class="control">
+                            <div class="select">
+                                <select data-period-type="" id="data-period-type">
+                                    <option>Select period type</option>
+                                    <option value="days">Days</option>
+                                    <option value="weeks">Weeks</option>
+                                    <option value="months">Months</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-link" data-go-estimate="" id="data-go-estimate">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="estimator.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

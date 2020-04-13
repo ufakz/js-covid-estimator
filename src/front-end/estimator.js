@@ -1,21 +1,7 @@
-const sampleData = {
-    region: {
-        name: "Africa",
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 4,
-        avgDailyIncomePopulation: 0.73
-    },
-    periodType: "days",
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874
-}
-
 /**
  * 
  * @param {} inputData
- * This is the root method that returns the result of the estimation 
+ * Returns the result of the estimation.  
  */
 const covid19ImpactEstimator = (inputData) => {
     const result = {};
@@ -139,5 +125,3 @@ const computeData = (inputData) => {
     }
 
 }
-
-module.exports = covid19ImpactEstimator;
