@@ -1,8 +1,9 @@
 const express = require('express');
 const logger = require('morgan');
 const jsonxml = require('jsontoxml');
-const estimator = require('./estimator');
 const fs = require('fs');
+const estimator = require('./estimator');
+
 const app = express();
 
 app.use(express.json());
@@ -66,5 +67,4 @@ app.get('*',
 
 const port = process.env.PORT || 3000;
 
-app.listen(port,
-  () => console.log(`Listening on ${port}`));
+app.listen(port);
