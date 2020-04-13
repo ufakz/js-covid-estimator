@@ -40,7 +40,7 @@ const respondXml = (req,res) => {
 }
 
 const respondLogs = (req,res) => {
-    const file = fs.createReadStream(`${__dirname}/../public/api.log`,{flags:'r'});
+    const file = fs.createReadStream(`${__dirname}/api.log`,{flags:'r'});
     res.set('Content-Type','text/plain')
     file.pipe(res)
 }
