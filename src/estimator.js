@@ -1,8 +1,3 @@
-/**
- * 
- * @param {} inputData
- * This is the root method that returns the result of the estimation 
- */
 const covid19ImpactEstimator = (inputData) => {
     const result = {};
     result.data = inputData;
@@ -24,15 +19,15 @@ const computeData = (inputData) => {
     if (periodType == "days") {
         days = timeToElapse;
         factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * Math.pow(2, factor));
+        infectionsByRequestedTime = parseInt(currentlyInfected * (2**factor));
     } else if (periodType = "weeks") {
         days = timeToElapse * 7;
         factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * Math.pow(2, factor));
+        infectionsByRequestedTime = parseInt(currentlyInfected * (2**factor));
     } else {
         days = timeToElapse * 30;
         factor = parseInt(days / 3);
-        infectionsByRequestedTime = parseInt(currentlyInfected * Math.pow(2, factor));
+        infectionsByRequestedTime = parseInt(currentlyInfected * (2**factor));
     }
 
     //Gets 15% of the infectionsByRequestedTime
@@ -61,14 +56,8 @@ const computeData = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight
     }
-
 }
 
-/**
- * 
- * @param {} inputData
- * This method computes the estimation for the impact 
- */
 const calculateImpact = (inputData) => {
     const currentlyInfected = parseInt(inputData.reportedCases * 10);
     inputData.currentlyInfected = currentlyInfected;
@@ -88,15 +77,9 @@ const calculateImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight
     }
-
     return impact;
-
 }
-/**
- * 
- * @param {*} inputData
- * This method computes the estimation for the severe impact
- */
+
 const calculateSevereImpact = (inputData) => {
     const currentlyInfected = parseInt(inputData.reportedCases * 50);
     inputData.currentlyInfected = currentlyInfected;
@@ -116,9 +99,7 @@ const calculateSevereImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight
     }
-
     return severeImpact;
-
 }
 
 module.exports = covid19ImpactEstimator;
