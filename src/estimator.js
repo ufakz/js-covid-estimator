@@ -38,7 +38,9 @@ const computeData = (inputData) => {
     const casesForVentilatorsByRequestedTime = Math.trunc(0.02 * infectionsByRequestedTime);
 
     // Gets the amount of dollars lost
-    const dollarsInFlight = Math.trunc((infectionsByRequestedTime * region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD) / days);
+    const dollarsInFlight = Math.trunc(
+        (infectionsByRequestedTime * region.avgDailyIncomePopulation * region.avgDailyIncomeInUSD)
+        / days);
 
     return {
         infectionsByRequestedTime,
@@ -71,7 +73,7 @@ const calculateImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight
     };
-  
+
     return impact;
 };
 
@@ -96,7 +98,7 @@ const calculateSevereImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight
     };
-  
+
     return severeImpact;
 };
 
@@ -106,7 +108,7 @@ const covid19ImpactEstimator = (inputData) => {
     result.estimate = {};
     result.estimate.impact = calculateImpact(inputData);
     result.estimate.severeImpact = calculateSevereImpact(inputData);
-  
+
     return result;
 };
 
