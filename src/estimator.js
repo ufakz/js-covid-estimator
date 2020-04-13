@@ -71,7 +71,7 @@ const calculateImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight,
     };
-
+  
     return impact;
 };
 
@@ -96,7 +96,7 @@ const calculateSevereImpact = (inputData) => {
         casesForVentilatorsByRequestedTime,
         dollarsInFlight,
     };
-
+  
     return severeImpact;
 };
 
@@ -106,7 +106,7 @@ const covid19ImpactEstimator = (inputData) => {
     result.estimate = {};
     result.estimate.impact = calculateImpact(inputData);
     result.estimate.severeImpact = calculateSevereImpact(inputData);
-
+  
     return result;
 };
 
