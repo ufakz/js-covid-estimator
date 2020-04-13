@@ -1,7 +1,7 @@
 const computeData = (inputData) => {
     // Gets the required variables from the inputData object
     const {
-        region, periodType, timeToElapse, currentlyInfected, totalHospitalBeds,
+        region, periodType, timeToElapse, currentlyInfected, totalHospitalBeds
     } = inputData;
     let infectionsByRequestedTime;
     let factor;
@@ -46,7 +46,7 @@ const computeData = (inputData) => {
         hospitalBedsByRequestedTime,
         casesForICUByRequestedTime,
         casesForVentilatorsByRequestedTime,
-        dollarsInFlight,
+        dollarsInFlight
     };
 };
 
@@ -59,7 +59,7 @@ const calculateImpact = (inputData) => {
         hospitalBedsByRequestedTime,
         casesForICUByRequestedTime,
         casesForVentilatorsByRequestedTime,
-        dollarsInFlight,
+        dollarsInFlight
     } = computeData(inputData);
 
     const impact = {
@@ -69,7 +69,7 @@ const calculateImpact = (inputData) => {
         hospitalBedsByRequestedTime,
         casesForICUByRequestedTime,
         casesForVentilatorsByRequestedTime,
-        dollarsInFlight,
+        dollarsInFlight
     };
   
     return impact;
@@ -84,7 +84,7 @@ const calculateSevereImpact = (inputData) => {
         hospitalBedsByRequestedTime,
         casesForICUByRequestedTime,
         casesForVentilatorsByRequestedTime,
-        dollarsInFlight,
+        dollarsInFlight
     } = computeData(inputData);
 
     const severeImpact = {
@@ -94,7 +94,7 @@ const calculateSevereImpact = (inputData) => {
         hospitalBedsByRequestedTime,
         casesForICUByRequestedTime,
         casesForVentilatorsByRequestedTime,
-        dollarsInFlight,
+        dollarsInFlight
     };
   
     return severeImpact;
