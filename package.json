@@ -8,9 +8,6 @@
     "start":"node src/index.js",
     "lint": "eslint ./src/"
   },
-  "engines": {
-    "node": "10.x"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "jsontoxml": "^1.0.1",
