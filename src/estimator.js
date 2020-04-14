@@ -37,7 +37,7 @@ const covid19ImpactEstimator = (inputData) => {
         dollarsInFlight:
           Math.trunc((currentlyInfected * rfactor
             * input.region.avgDailyIncomePopulation * input.region.avgDailyIncomeInUSD)
-            / days),
+            / days)
       },
       severeImpact: {
         currentlyInfected: severeCurrentlyInfected,
@@ -54,9 +54,9 @@ const covid19ImpactEstimator = (inputData) => {
           (Math.trunc(0.02 * severeCurrentlyInfected * rfactor)),
         dollarsInFlight: Math.trunc((severeCurrentlyInfected * rfactor
           * input.region.avgDailyIncomePopulation * input.region.avgDailyIncomeInUSD)
-          / days),
-      },
-    },
+          / days)
+      }
+    }
   };
 };
 
