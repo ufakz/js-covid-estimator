@@ -58,7 +58,6 @@ const covid19ImpactEstimator = (inputData) => {
       }
     }
   };
-  
   return result;
 };
 
