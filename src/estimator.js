@@ -18,7 +18,7 @@ const covid19ImpactEstimator = (inputData) => {
 
   const rfactor = Math.trunc(2 ** factor);
 
-  return {
+  const result = {
     data: input,
     estimate: {
       impact: {
@@ -58,6 +58,8 @@ const covid19ImpactEstimator = (inputData) => {
       }
     }
   };
+  
+  return result;
 };
 
 export default covid19ImpactEstimator;
