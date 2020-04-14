@@ -45,8 +45,8 @@ const covid19ImpactEstimator = (inputData) => {
       severeCasesByRequestedTime:
         (Math.trunc(0.15 * Math.trunc(severeCurrentlyInfected * rfactor))),
       hospitalBedsByRequestedTime:
-        (Math.trunc(0.35 * input.totalHospitalBeds)
-          - Math.trunc(0.15 * severeCurrentlyInfected * rfactor)),
+        (Math.trunc((0.35 * input.totalHospitalBeds)
+          - Math.trunc(0.15 * Math.trunc(severeCurrentlyInfected * rfactor)))),
       casesForICUByRequestedTime:
         (Math.trunc(0.05 * severeCurrentlyInfected * rfactor)),
       casesForVentilatorsByRequestedTime:
@@ -59,4 +59,21 @@ const covid19ImpactEstimator = (inputData) => {
   return result;
 };
 
-export default covid19ImpactEstimator;
+const sampleData = {
+  region: {
+    name: 'Africa',
+    avgAge: 19.7,
+    avgDailyIncomeInUSD: 4,
+    avgDailyIncomePopulation: 0.73
+  },
+  periodType: 'days',
+  timeToElapse: 38,
+  reportedCases: 2747,
+  population: 92931687,
+  totalHospitalBeds: 678874
+}
+
+console.log(covid19ImpactEstimator(sampleData))
+
+
+//export default covid19ImpactEstimator;
