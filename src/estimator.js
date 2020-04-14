@@ -5,14 +5,14 @@ const covid19ImpactEstimator = (inputData) => {
   let days;
   let factor;
 
-  if (input.periodType === 'days') {
-    days = input.timeToElapse;
+  if (input.periodType === 'months') {
+    days = input.timeToElapse * 30;
     factor = Math.trunc(days / 3);
   } else if (input.periodType === 'weeks') {
     days = input.timeToElapse * 7;
     factor = Math.trunc(days / 3);
   } else {
-    days = input.timeToElapse * 30;
+    days = input.timeToElapse * 1;
     factor = Math.trunc(days / 3);
   }
 
