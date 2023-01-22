@@ -9,7 +9,7 @@
     "lint": "eslint ./src/"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jsontoxml": "^1.0.1",
     "morgan": "^1.10.0",
     "on-covid-19": "^0.1.3",
